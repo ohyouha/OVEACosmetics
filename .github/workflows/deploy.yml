@@ -18,15 +18,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Prepare site for Pages
-        run: |
-          mkdir -p public
-          cp -R index.html css js asset .nojekyll public/
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: public
+          path: |
+            index.html
+            css
+            js
+            asset
+            .nojekyll
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
